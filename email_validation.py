@@ -38,3 +38,33 @@ def is_valid_email(email: str, domain: str) -> bool:
         return False
 
     return True
+
+
+# NOTE safe to assume username can be extracted
+def extract_user(email: str) -> str:
+    """Takes an email address and returns the left-hand part of it.
+
+    Args:
+        email (str): Any string.
+
+    Returns:
+        str: String containing hypothetical name.
+    """
+    return email.split("@")[0]
+
+
+def spotting_word(user_input: str, keywords: List[str]) -> bool:
+    """Checks input string for key words and end program if detected.
+
+    Args:
+        user_input (str): Non-empty string.
+
+    Returns:
+        bool: Returns True to quit the program.
+    """
+    if set(keywords) & set(user_input.split()):
+        return True
+    else:
+        return False
+
+    # return any(x in user_input for x in keywords)
