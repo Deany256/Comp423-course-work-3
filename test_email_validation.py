@@ -1,5 +1,10 @@
 import pytest
-from email_validation import is_valid_email, extract_user, spotting_word
+from email_validation import (
+    creating_an_answer,
+    is_valid_email,
+    extract_user,
+    spotting_word,
+)
 
 
 # def test_random_string():
@@ -54,3 +59,11 @@ def test_extract_user(email, expected):
 )
 def test_spotting_word(user_input, keywords, expected):
     assert spotting_word(user_input, keywords) == expected
+
+
+@pytest.mark.parametrize(
+    "user_input,keywords,responses,expected",
+    [("hello", ["quit", "hello"], {"hello": "Hello George"}, "Hello George")],
+)
+def test_creating_an_answer(user_input, keywords, responses, expected):
+    assert creating_an_answer(user_input, keywords, responses) == expected
