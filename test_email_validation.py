@@ -7,23 +7,6 @@ from email_validation import (
 )
 
 
-# def test_random_string():
-
-#     l = ["hi", "my", "name"]
-#     expected = "my"
-#     result = random_string(l)
-
-#     assert result == expected
-
-# testdata = [
-#     ("fred@pop.ac.uk", "pop.ac.uk", True),
-#     ("fred@pop.ac.uk", "unipop.ac.uk", False),
-#     ("@pop.ac.uk", "pop.ac.uk", False),
-#     ("f@pop.ac.uk", "pop.ac.uk", False),
-#     ("fred.at.ac.uk", "pop.ac.uk", False),
-# ]
-
-
 @pytest.mark.parametrize(
     "email,domain,expected",
     [
@@ -36,9 +19,6 @@ from email_validation import (
 )
 def test_is_valid_email(email, domain, expected):
     assert is_valid_email(email, domain) == expected
-
-
-# testdata2 = [("fred@pop.ac.uk", "fred"), ("freddi@pop.ac.uk", "freddi")]
 
 
 @pytest.mark.parametrize(

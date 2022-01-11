@@ -24,25 +24,21 @@ def is_valid_email(email: str, domain: str) -> bool:
     Returns:
         bool: representing whether string is valid email for domain.
     """
-    # The address must contain exactly one @ character
+
     if email.count("@") != 1:
         return False
 
-    # The @ character must have at least two characters before it
     if email.index("@") < 2:
         return False
 
-    # The characters after the @ character must be the domain (the other parameter), and nothing else.
-    # NOTE safe to assume list will be of length 2
     if email.split("@")[1] != domain:
         return False
 
     return True
 
 
-# NOTE safe to assume username can be extracted
 def extract_user(email: str) -> str:
-    """Takes an email address and returns the left-hand part of it.
+    """Takes an email address and returns the left-hand part of it. Should only be in place after is_valid_email function
 
     Args:
         email (str): Any string.
@@ -66,8 +62,6 @@ def spotting_word(user_input: str, keywords: List[str]) -> bool:
         return True
     else:
         return False
-
-    # return any(x in user_input for x in keywords)
 
 
 def creating_an_answer(user_input: str, keywords: List[str], responses: dict) -> str:
