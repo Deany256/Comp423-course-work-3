@@ -1,4 +1,3 @@
-from random import choice
 from email_validation import (
     creating_an_answer,
     extract_user,
