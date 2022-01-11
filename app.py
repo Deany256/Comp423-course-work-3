@@ -17,7 +17,7 @@ def random_disconnect():
         quit()
 
 
-problem_list = [
+PROBLEM_LIST = [
     "library",
     "wifi",
     "deadline",
@@ -25,13 +25,13 @@ problem_list = [
     "absence",
     "kitchen",
 ]
-operator_name = [
+OPERATOR_NAME = [
     "James",
     "Robert",
     "mary",
     "Jennifer",
 ]
-answers = {
+ANSWERS = {
     "library": "the library is closed",
     "wifi": "the wifi coverage is excellent",
     "coffee": "the cafe is open at the moment",
@@ -39,7 +39,7 @@ answers = {
     "absence": "your absence will be noted",
     "kitchen": "the Poppleton Kitchen is open Mon-Fri 10:00-3:00",
 }
-responses = [
+RESPONSES = [
     "Hmmmm.",
     "Huh.",
     "You should try working on this system.",
@@ -48,7 +48,19 @@ responses = [
     "Oh, yes, I see",
     "Tell me more",
 ]
-end_program_keywords = ["exit", "quit", "bye", "goodbye", "seeya"]
+END_PROGRAM_KEYWORDS = [
+    "exit",
+    "quit",
+    "bye",
+    "goodbye",
+    "seeya",
+    "Exit",
+    "Quit",
+    "Bye",
+    "Good bye",
+    "Goodbye",
+    "Seeya",
+]
 
 if __name__ == "__main__":
     print("Welcome to Pop Chat.")
@@ -64,21 +76,21 @@ if __name__ == "__main__":
         quit()
     random_disconnect()
     print(
-        f"My name is {random_string(operator_name)}, and it will be my pleasure to help you."
+        f"My name is {random_string(OPERATOR_NAME)}, and it will be my pleasure to help you."
     )
     user_input = input("How can I help you: ").lower()
     random_disconnect()
     while True:
-        if spotting_word(user_input, problem_list) == True:
-            print(creating_an_answer(user_input, problem_list, answers))
+        if spotting_word(user_input, PROBLEM_LIST) == True:
+            print(creating_an_answer(user_input, PROBLEM_LIST, ANSWERS))
             user_input = input("-->")
             random_disconnect()
         else:
-            if spotting_word(user_input, end_program_keywords) == True:
+            if spotting_word(user_input, END_PROGRAM_KEYWORDS) == True:
                 print("bye")
                 print()
                 print(f"Thanks, {user_name}, for using PopChat. See you again soon.")
                 quit()
             else:
-                print(choice(responses))
+                print(random_string(RESPONSES))
                 user_input = input("-->")
